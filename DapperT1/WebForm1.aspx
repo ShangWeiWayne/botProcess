@@ -49,8 +49,12 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:Button ID="DynamicObjForCrud" runat="server" OnClick="Button1_Click" Text="DynamicObjForCrud" Width="248px" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>

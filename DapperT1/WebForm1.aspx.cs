@@ -71,5 +71,37 @@ namespace DapperT1
         {
             Utility.SendLogToNotify(TextBox2.Text);
         }
+
+        //protected void DynamicObjForCrud_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            var _userID = "test001";
+
+            dynamic dynClass = new DialogStatus();
+            List<DialogStatus> _results = null;
+            string _status = null;
+
+            using (SqlConnection conn = new SqlConnection(azConnStr))
+            {
+                string strSql = @"Select * from  
+                                    _DialogStatus 
+                                  Where 
+                                    user_id = @user_id";
+                _results = conn.Query<>(strSql, new { user_id = _userID }).ToList();
+            }
+
+            _results.ForEach((x) =>
+            {
+                _status = x.status;
+            });
+
+            TextBox3.Text = _status;
+
+        }
     }
 }

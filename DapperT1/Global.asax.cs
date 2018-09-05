@@ -14,7 +14,7 @@ namespace DapperT1
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            
+            AutofacConfig.Bootstrapper();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
             //一律輸出json，並且格式化

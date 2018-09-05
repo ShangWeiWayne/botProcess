@@ -10,7 +10,7 @@ using Dapper;
 
 namespace DapperT1.DataAccessLayer
 {
-    public class azQuery
+    public class azQuery 
     {
         private static string azConnStr = WebConfigurationManager.ConnectionStrings["azConnStr"].ToString();
         
