@@ -17,6 +17,13 @@
             height: 20px;
             width: 143px;
         }
+        .auto-style4 {
+            width: 143px;
+            height: 2px;
+        }
+        .auto-style5 {
+            height: 2px;
+        }
     </style>
 </head>
 <body>
@@ -58,9 +65,27 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="auto-style5">
+                        <asp:Button ID="flexMessage" runat="server" OnClick="flexMessage_Click" Text="Flex Message" Width="248px" />
+                    </td>
+                    <td class="auto-style5"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="auto-style5">
+                        <asp:Button ID="imagemap" runat="server" OnClick="imagemap_Click" Text="Imagemap" Width="253px" />
+                    </td>
+                    <td class="auto-style5">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
                 </tr>
             </table>
         </div>

@@ -71,3 +71,8 @@ C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\obj\Debug\DapperT1.dll
 C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\obj\Debug\DapperT1.pdb
 C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\LineBot.dll
 C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\LineBot.xml
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.dll
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.Integration.WebApi.dll
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.xml
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.Integration.WebApi.pdb
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.Integration.WebApi.xml

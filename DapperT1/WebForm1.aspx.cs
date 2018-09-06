@@ -1,8 +1,10 @@
 ﻿using Dapper;
 using DapperT1.BusinessLogicLayer;
 using DapperT1.Model;
+using isRock.LineBot;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -15,7 +17,8 @@ namespace DapperT1
     public partial class WebForm1 : System.Web.UI.Page
     {
         private static string azConnStr = WebConfigurationManager.ConnectionStrings["azConnStr"].ToString();
-
+        string channelAccessToken = ConfigurationManager.AppSettings["ChannelAccessToken"];
+        string AdminUserId = ConfigurationManager.AppSettings["AdminUserId"];
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -80,28 +83,104 @@ namespace DapperT1
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            var _userID = "test001";
+            //var _userID = "test001";
 
-            dynamic dynClass = new DialogStatus();
-            List<DialogStatus> _results = null;
-            string _status = null;
+            //dynamic dynClass = new DialogStatus();
+            //List<DialogStatus> _results = null;
+            //string _status = null;
 
-            using (SqlConnection conn = new SqlConnection(azConnStr))
+            //using (SqlConnection conn = new SqlConnection(azConnStr))
+            //{
+            //    string strSql = @"Select * from  
+            //                        _DialogStatus 
+            //                      Where 
+            //                        user_id = @user_id";
+            //    _results = conn.Query<>(strSql, new { user_id = _userID }).ToList();
+            //}
+
+            //_results.ForEach((x) =>
+            //{
+            //    _status = x.status;
+            //});
+
+            //TextBox3.Text = _status;
+
+        }
+
+        protected void flexMessage_Click(object sender, EventArgs e)
+        {
+            var Flex = @"
+[
+    {
+      ""type"": ""flex"",
+      ""altText"": ""This is a Flex Message"",
+      ""contents"": 
             {
-                string strSql = @"Select * from  
-                                    _DialogStatus 
-                                  Where 
-                                    user_id = @user_id";
-                _results = conn.Query<>(strSql, new { user_id = _userID }).ToList();
+                {
+  ""type"": ""bubble"",
+  ""body"": {
+                ""type"": ""box"",
+    ""layout"": ""vertical"",
+    ""spacing"": ""md"",
+    ""contents"": [
+      {
+        ""type"": ""box"",
+        ""layout"": ""vertical"",
+        ""margin"": ""xxl"",
+        ""contents"": [
+          {
+            ""type"": ""spacer""
+          },
+          {
+            ""type"": ""image"",
+            ""url"": ""https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png"",
+            ""aspectMode"": ""cover"",
+            ""size"": ""xl""
+          },
+          {
+            ""type"": ""text"",
+            ""text"": ""使用Flex_Message"",
+            ""color"": ""#aaaaaa"",
+            ""wrap"": true,
+            ""margin"": ""xxl"",
+            ""size"": ""xs""
+          }
+        ]
+      }
+    ]
+  }
+}
             }
+    }
+  ]
+";
+            //define bot instance
+            Bot bot = new Bot(channelAccessToken);
 
-            _results.ForEach((x) =>
+            //Push Flex Message
+            bot.PushMessageWithJSON(AdminUserId, Flex);
+        }
+
+        protected void imagemap_Click(object sender, EventArgs e)
+        {
+            var bot = new Bot(channelAccessToken);
+            isRock.LineBot.ImagemapMessage imagemapMessage = new ImagemapMessage();
+            imagemapMessage.altText = "imagemapMessage test";
+            imagemapMessage.baseSize = new System.Drawing.Size(1040, 1040);
+            imagemapMessage.baseUrl = new Uri($"https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_4_news.png#");
+            imagemapMessage.actions = new List<ImagemapActionBase>();
+            imagemapMessage.actions.Add(new isRock.LineBot.ImagemapMessageAction()
             {
-                _status = x.status;
+                area = new ImagemapArea() { x = 0, y = 0, height = 500, width = 500 },
+                text = "點選了(0,0) - (500,500)"
             });
-
-            TextBox3.Text = _status;
-
+            imagemapMessage.actions.Add(new isRock.LineBot.ImagemapUriAction()
+            {
+                area = new ImagemapArea() { x = 500, y = 500, height = 1040, width = 1040 },
+                linkUri = new Uri("line://app/1587126793-1loqMRnz")
+            });
+            bot.PushMessage(AdminUserId, imagemapMessage.baseUrl.ToString());
+            bot.PushMessage(AdminUserId, imagemapMessage);
         }
     }
 }
