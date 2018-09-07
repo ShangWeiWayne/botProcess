@@ -104,6 +104,7 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
@@ -115,7 +116,11 @@
     <Compile Include="BusinessLogicLayer\EnumInfo.cs" />
     <Compile Include="Controllers\LineWebHookController.cs" />
     <Compile Include="DataAccessLayer\azQuery.cs" />
+    <Compile Include="DataAccessLayer\azQuery_DrugMind.cs" />
+    <Compile Include="DataAccessLayer\Class1.cs" />
     <Compile Include="DataAccessLayer\IazQuery.cs" />
+    <Compile Include="DataAccessLayer\Query.cs" />
+    <Compile Include="DataAccessLayer\azQuery_Status.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -128,6 +133,13 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

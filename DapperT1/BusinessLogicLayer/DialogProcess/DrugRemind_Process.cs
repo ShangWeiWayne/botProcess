@@ -17,7 +17,7 @@ namespace DapperT1.BusinessLogicLayer.DialogProcess
             var ChannelToken = ConfigurationManager.AppSettings["ChannelAccessToken"];
             isRock.LineBot.Bot bot = new isRock.LineBot.Bot(ChannelToken);
             var userInfo = bot.GetUserInfo(_userId);
-
+            
             switch (_subState)
             {
                 case (int)SubStateEnum.Step0:

@@ -10,7 +10,7 @@ using Dapper;
 
 namespace DapperT1.DataAccessLayer
 {
-    public class azQuery 
+    public partial class azQuery 
     {
         private static string azConnStr = WebConfigurationManager.ConnectionStrings["azConnStr"].ToString();
         
@@ -30,10 +30,7 @@ namespace DapperT1.DataAccessLayer
                 _results = conn.Query<DialogStatus>(strSql, new { user_id = _userID }).ToList();
             }
 
-            _results.ForEach((x) =>
-            {
-                _status = x.status;
-            });
+            _results.ForEach((x) => { _status = x.status; });
 
             return _status;
         }

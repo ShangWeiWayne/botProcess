@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DapperT1.BusinessLogicLayer;
+using DapperT1.DataAccessLayer;
 using DapperT1.Model;
 using isRock.LineBot;
 using System;
@@ -11,6 +12,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 
 namespace DapperT1
 {
@@ -181,6 +183,34 @@ namespace DapperT1
             });
             bot.PushMessage(AdminUserId, imagemapMessage.baseUrl.ToString());
             bot.PushMessage(AdminUserId, imagemapMessage);
+        }
+
+        protected async void QueryAsync_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string status = null;
+                ////azQuery.InsertData(TextBox6.Text);
+                //var res = azQuery.GetUserStatusByID("test002");
+                //var r = JsonConvert.SerializeObject(res);
+                //res.ToList().ForEach((x) => status = x.status);
+                
+
+                //var async = await azQuery.GetUserStatusAsync("test002");
+                //var posts ;
+                //async.ToList().ForEach((x) => { status = x.status; });
+                //foreach (var post in async)
+                //{
+                //    TextBox6.Text = post.status;
+                ////}
+                //var r = JsonConvert.SerializeObject(async);
+                //TextBox6.Text = r;
+            }
+            catch (AggregateException ex)
+            {
+                TXT_Result.Text = ex.Message;
+            }
+            
         }
     }
 }

@@ -19,13 +19,13 @@ namespace DapperT1.Controllers
         [HttpPost]
         public IHttpActionResult POST()
         {
+            //取得 http Post RawData(should be JSON)
+            string postData = Request.Content.ReadAsStringAsync().Result;
+            //剖析JSON
+            var ReceivedMessage = isRock.LineBot.Utility.Parsing(postData);
+
             try
             {
-                //取得 http Post RawData(should be JSON)
-                string postData = Request.Content.ReadAsStringAsync().Result;
-                //剖析JSON
-                var ReceivedMessage = isRock.LineBot.Utility.Parsing(postData);
-                
                 DialogFlow _df = new DialogFlow(ReceivedMessage);
                 _df.Process();
                 
@@ -33,8 +33,10 @@ namespace DapperT1.Controllers
             }
             catch (Exception ex)
             {
+                var _LineEvent = ReceivedMessage.events.FirstOrDefault();
+                var _userId = _LineEvent.source.userId;
                 //回覆訊息
-                this.PushMessage(AdminUserID, "發生錯誤:\n" + ex.Message);
+                this.PushMessage(_userId, "發生錯誤:\n" + ex.Message);
 
                 return Ok();
             }
