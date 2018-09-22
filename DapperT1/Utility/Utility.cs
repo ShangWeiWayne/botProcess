@@ -11,13 +11,13 @@ namespace DapperT1
 {
     public static class Utility
     {
-
+        
         public static void SendLogToNotify(string LogMessage)
         {
             string token = ConfigurationManager.AppSettings["NotifyToken"];
             isRock.LineNotify.Utility.SendNotify(token, $"\nLOG:{LogMessage}");
         }
-
+        
         public static T GetEnumValueFromDescription<T>(string description)
         {
             //使用方法:

@@ -28,7 +28,6 @@ namespace DapperT1.Controllers
             {
                 DialogFlow _df = new DialogFlow(ReceivedMessage);
                 _df.Process();
-                
                 return Ok();
             }
             catch (Exception ex)

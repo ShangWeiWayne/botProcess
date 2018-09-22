@@ -29,6 +29,14 @@
         .auto-style6 {
             width: 271px;
         }
+        .auto-style7 {
+            width: 143px;
+            height: 19px;
+        }
+        .auto-style8 {
+            height: 19px;
+            width: 271px;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +49,7 @@
                     <td class="auto-style6">
                         <asp:Button ID="resetStatus" runat="server" OnClick="resetStatus_Click" Text="resetStatus" Width="254px" />
                     </td>
-                    <td rowspan="7">
+                    <td rowspan="10">
                         <asp:TextBox ID="TXT_Result" runat="server" Height="181px" TextMode="MultiLine" Width="447px"></asp:TextBox>
                     </td>
                 </tr>
@@ -92,6 +100,27 @@
                     <td class="auto-style5">
                         <asp:Button ID="QueryAsync" runat="server" OnClick="QueryAsync_Click" Text="QueryAsync" Width="256px" />
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style7">
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="FlexTest" Width="242px" />
+                    </td>
+                    <td class="auto-style8">
+                        <asp:Button ID="InsertTrans" runat="server" OnClick="InsertTrans_Click" Text="InsertTrans" Width="250px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="GetStatus" Width="244px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        &nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
                 </tr>
             </table>
         </div>

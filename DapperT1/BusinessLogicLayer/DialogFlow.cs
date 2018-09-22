@@ -11,7 +11,6 @@ namespace DapperT1.BusinessLogicLayer
 {
     public class DialogFlow
     {
-        
         private string _status = null;
         private int _state ;
         private int _subState;

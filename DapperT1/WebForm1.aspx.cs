@@ -114,38 +114,38 @@ namespace DapperT1
             var Flex = @"
 [
     {
-      ""type"": ""flex"",
-      ""altText"": ""This is a Flex Message"",
-      ""contents"": 
+      'type': 'flex',
+      'altText': 'This is a Flex Message',
+      'contents': 
             {
                 {
-  ""type"": ""bubble"",
-  ""body"": {
-                ""type"": ""box"",
-    ""layout"": ""vertical"",
-    ""spacing"": ""md"",
-    ""contents"": [
+  'type': 'bubble',
+  'body': {
+                'type': 'box',
+    'layout': 'vertical',
+    'spacing': 'md',
+    'contents': [
       {
-        ""type"": ""box"",
-        ""layout"": ""vertical"",
-        ""margin"": ""xxl"",
-        ""contents"": [
+        'type': 'box',
+        'layout': 'vertical',
+        'margin': 'xxl',
+        'contents': [
           {
-            ""type"": ""spacer""
+            'type': 'spacer'
           },
           {
-            ""type"": ""image"",
-            ""url"": ""https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png"",
-            ""aspectMode"": ""cover"",
-            ""size"": ""xl""
+            'type': 'image',
+            'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png',
+            'aspectMode': 'cover',
+            'size': 'xl'
           },
           {
-            ""type"": ""text"",
-            ""text"": ""使用Flex_Message"",
-            ""color"": ""#aaaaaa"",
-            ""wrap"": true,
-            ""margin"": ""xxl"",
-            ""size"": ""xs""
+            'type': 'text',
+            'text': '使用Flex_Message',
+            'color': '#aaaaaa',
+            'wrap': true,
+            'margin': 'xxl',
+            'size': 'xs'
           }
         ]
       }
@@ -181,8 +181,8 @@ namespace DapperT1
                 area = new ImagemapArea() { x = 500, y = 500, height = 1040, width = 1040 },
                 linkUri = new Uri("line://app/1587126793-1loqMRnz")
             });
-            bot.PushMessage(AdminUserId, imagemapMessage.baseUrl.ToString());
-            bot.PushMessage(AdminUserId, imagemapMessage);
+            bot.PushMessage("U02651d25e09b9e0cd129cca58477edbd", imagemapMessage.baseUrl.ToString());
+            bot.PushMessage("U02651d25e09b9e0cd129cca58477edbd", imagemapMessage);
         }
 
         protected async void QueryAsync_Click(object sender, EventArgs e)
@@ -210,7 +210,78 @@ namespace DapperT1
             {
                 TXT_Result.Text = ex.Message;
             }
-            
+        }
+
+        protected void InsertTrans_Click(object sender, EventArgs e)
+        {
+            azQuery.DrugRemind.SetReservation();
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            TXT_Result.Text = azQuery.getStatus();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            var Flex = @"
+[
+    {
+      'type': 'flex',
+      'altText': 'This is a Flex Message',
+      'contents': 
+{
+  ""type"": ""bubble"",
+  ""body"": {
+                ""type"": ""box"",
+    ""layout"": ""vertical"",
+    ""spacing"": ""md"",
+    ""contents"": [
+      {
+        ""type"": ""text"",
+        ""margin"": ""xl"",
+        ""text"": ""\n尚葳 您好!\n\n你的號碼是107號"",
+        ""wrap"": true,
+        ""weight"": ""bold"",
+        ""gravity"": ""center"",
+        ""align"": ""center"",
+        ""size"": ""xl""
+      },
+      {
+        ""type"": ""text"",
+        ""text"": ""目前輪到 82號\n約還要等候20鐘"",
+        ""wrap"": true,
+        ""weight"": ""bold"",
+        ""gravity"": ""center"",
+        ""align"": ""center"",
+        ""size"": ""xl""
+      }
+    ]
+  },
+  ""footer"": {
+    ""type"": ""box"",
+    ""layout"": ""vertical"",
+    ""spacing"": ""sm"",
+    ""contents"": [
+      {
+        ""type"": ""button"",
+        ""action"": {
+          ""type"": ""uri"",
+          ""label"": ""更多資訊"",
+          ""uri"": ""https://linecorp.com""
+        }
+      }
+    ]
+  }
+}
+    }
+  ]
+";
+            //define bot instance
+            Bot bot = new Bot(channelAccessToken);
+
+            //Push Flex Message
+            bot.PushMessageWithJSON(AdminUserId, Flex);
         }
     }
 }

@@ -4,14 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
-namespace DapperT1.BusinessLogicLayer
+namespace DapperT1
 {
-
     public enum StateEnum:int
     {
         [Description("首頁")]
         Portal = 00,
-        [Description("用藥提醒")]
+        [Description("叫號服務")]
         DrugRemind = 01
     }
 
@@ -30,5 +29,14 @@ namespace DapperT1.BusinessLogicLayer
         Step9 = 09,
         Step10 = 10
     }
-    
+
+    public enum Enum_Reserv_Status : int 
+    {
+        Start = 01,
+        Progress = 02,
+        Complete = 03,
+        Cancel = 04
+    }
+
+
 }

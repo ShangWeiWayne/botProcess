@@ -71,3 +71,8 @@ C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\zh-Hant\System.Web.Http.WebHo
 C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\obj\Release\DapperT1.csproj.CopyComplete
 C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\obj\Release\DapperT1.dll
 C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\obj\Release\DapperT1.pdb
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.dll
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.Integration.WebApi.dll
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.xml
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.Integration.WebApi.pdb
+C:\Users\tsai\Desktop\C# OOP\DapperT1\DapperT1\bin\Autofac.Integration.WebApi.xml

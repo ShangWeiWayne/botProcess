@@ -40,7 +40,8 @@ namespace DapperT1.DataAccessLayer
                                     _DialogStatus 
                                 Where 
                                     user_id = @user_id";
-            var parameter = new { user_id = _id };
+            var parameter = new {
+                user_id = _id };
             
             var result =Query.QuerySync(sqlCommand, parameter);
             
